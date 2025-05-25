@@ -8,13 +8,13 @@ import  com.gco.producto.dominio.usecase.entities.*;
 @Component
 public class CrearMovimientoUseCase {
 
-    private final RepositorioMovimiento repositorioMovimiento;
+    private final RepositorioMovimientoGateway repositorioMovimientoGateway;
 
-    public CrearMovimientoUseCase(RepositorioMovimiento repositorioMovimiento) {
-        this.repositorioMovimiento = repositorioMovimiento;
+    public CrearMovimientoUseCase(RepositorioMovimientoGateway repositorioMovimientoGateway) {
+        this.repositorioMovimientoGateway = repositorioMovimientoGateway;
     }
 
     public void ejecutar(Movimiento movimiento,Producto productos) {
-        this.repositorioMovimiento.agregar(movimiento,productos);
+        this.repositorioMovimientoGateway.agregar(movimiento,productos);
     }
 }

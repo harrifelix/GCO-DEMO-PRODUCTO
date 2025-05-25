@@ -6,7 +6,7 @@ import  com.gco.producto.dominio.usecase.entities.*;
 
 import java.util.List;
 
-public interface RepositorioMovimiento {
+public interface RepositorioMovimientoGateway {
 
     void agregar(Movimiento movimiento,Producto productos);
     List<Movimiento> getAll();

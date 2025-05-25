@@ -7,13 +7,14 @@ import com.gco.producto.infraestructura.adapters.builder.*;
 import com.gco.producto.infraestructura.adapters.entidad.*;
 import org.springframework.stereotype.Repository;
 
+
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class RepositorioMovimientoPersistente implements RepositorioMovimiento {
+public class RepositorioMovimientoPersistente implements RepositorioMovimientoGateway {
 
     private static final String ID = "id";
 
@@ -21,12 +22,7 @@ public class RepositorioMovimientoPersistente implements RepositorioMovimiento {
     private static final String NOMBRE = "nombre";
     private static final String CATEGORIA = "categoria";
 
-    private static final String PRODUCTO_FIND_BY_ALL = "Producto.findAll";
-    private static final String PRODUCTO_FIND_BY_NOMBRE = "Producto.findByNombre";
-    private static final String PRODUCTO_FIND_BY_CATEGORIA = "Producto.findByCategoria";
-    private static final String PRODUCTO_FIND_BY_CODIGO = "Producto.findByCodigo";
-
-    private static final String PRODUCTO_FIND_BY_ID = "Producto.findById";
+    private static final String PRODUCTO_FIND_BY_ALL = "Movimiento.findAll";
 
     private final EntityManager entityManager;
 
@@ -53,6 +49,30 @@ public class RepositorioMovimientoPersistente implements RepositorioMovimiento {
 
     @Override
     public List<Movimiento> getAll() {
-        return null;
+
+        List<MovimientoEntity> movimientoEntity =  obtenerTodos();
+        List<Movimiento> listProducto=new ArrayList<Movimiento>();
+        if (movimientoEntity == null) {
+            return null;
+        }
+        for (MovimientoEntity p:movimientoEntity
+        ) {
+            int id = Math.toIntExact(p.getId());
+
+            Movimiento   movimiento = new Movimiento(id,
+                    null,p.getTipo()
+                    ,p.getCantidad(),p.getFecha(),p.getDescripcion());
+
+            listProducto.add(movimiento);
+        }
+        return  listProducto;
+
+    }
+    private List<MovimientoEntity> obtenerTodos() {
+
+        Query query = entityManager.createNamedQuery(PRODUCTO_FIND_BY_ALL);
+        List resultList = query.getResultList();
+
+        return !resultList.isEmpty() ? (List<MovimientoEntity>) resultList: null;
     }
 }

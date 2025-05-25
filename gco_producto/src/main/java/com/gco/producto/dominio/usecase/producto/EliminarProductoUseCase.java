@@ -1,19 +1,19 @@
 package com.gco.producto.dominio.usecase.producto;
 
 
-import com.gco.producto.dominio.gateway.RepositorioLibro;
+import com.gco.producto.dominio.gateway.RepositorioProductoGateway;
 import org.springframework.stereotype.Component;
 
 @Component
 public class EliminarProductoUseCase {
 
-    private final RepositorioLibro repositorioLibro;
+    private final RepositorioProductoGateway repositorioProductoGateway;
 
-    public EliminarProductoUseCase(RepositorioLibro repositorioLibro) {
-        this.repositorioLibro = repositorioLibro;
+    public EliminarProductoUseCase(RepositorioProductoGateway repositorioProductoGateway) {
+        this.repositorioProductoGateway = repositorioProductoGateway;
     }
 
     public void ejecutar(String id) {
-        this.repositorioLibro.eliminar(id);
+        this.repositorioProductoGateway.eliminar(id);
     }
 }

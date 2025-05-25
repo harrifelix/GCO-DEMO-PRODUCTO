@@ -5,7 +5,7 @@ import com.gco.producto.dominio.usecase.entities.Producto;
 
 import java.util.List;
 
-public interface RepositorioLibro {
+public interface RepositorioProductoGateway {
 
     void agregar(Producto producto);
 

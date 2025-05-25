@@ -1,7 +1,7 @@
 package com.gco.producto.infraestructura.adapters.repositorio;
 
 import com.gco.producto.dominio.usecase.entities.Producto;
-import com.gco.producto.dominio.gateway.RepositorioLibro;
+import com.gco.producto.dominio.gateway.RepositorioProductoGateway;
 import com.gco.producto.infraestructura.adapters.builder.ProductoBuilder;
 import com.gco.producto.infraestructura.adapters.entidad.ProductoEntity;
 import org.springframework.stereotype.Repository;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class RepositorioProductoPersistente implements RepositorioLibro {
+public class RepositorioProductoPersistente implements RepositorioProductoGateway {
 
     private static final String ID = "id";
 
