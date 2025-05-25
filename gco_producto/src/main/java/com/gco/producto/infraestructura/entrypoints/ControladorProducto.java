@@ -1,6 +1,7 @@
 package com.gco.producto.infraestructura.entrypoints;
 
 import com.gco.producto.aplicacion.manejadores.producto.ManejadorCrearProducto;
+import com.gco.producto.aplicacion.manejadores.movimiento.*;
 import com.gco.producto.dominio.usecase.entities.Producto;
 import org.springframework.web.bind.annotation.*;
 import com.gco.producto.aplicacion.manejadores.producto.*;
@@ -9,6 +10,7 @@ import java.util.Date;
 import java.util.List;
 import com.gco.producto.aplicacion.comando.*;
 import org.springframework.http.ResponseEntity;
+import com.gco.producto.infraestructura.entrypoints.enums.*;
 
 
 @RestController
@@ -35,6 +37,8 @@ public class ControladorProducto {
 
     private final ManejadorObtenerProductoByNombre manejadorObtenerByNombreProducto;
 
+    private final ManejadorCrearMovimiento manejadorCrearMovimiento;
+
     public static final String FEHCA_CON_FORMATO = "dd-MM-yyyy";
     public static final String TIME_ZONE = "America/Bogota";
 
@@ -46,7 +50,8 @@ public class ControladorProducto {
             , ManejadorObtenerProductoByCodigo manejadorObtenerByCodigoProducto
             , ManejadorObtenerProductoByNombre manejadorObtenerByNombreProducto
     , ManejadorObtenerProductoById
-                                       manejadorObtenerProductoById) {
+                                       manejadorObtenerProductoById
+    ,ManejadorCrearMovimiento manejadorCrearMovimiento) {
         this.manejadorCrearProducto = manejadorCrearProducto;
         this.manejadorObtenerProductosa = manejadorObtenerProductosa;
         this.manejadorEliminarProducto = manejadorEliminarProducto;
@@ -55,6 +60,7 @@ public class ControladorProducto {
         this.manejadorObtenerByCodigoProducto = manejadorObtenerByCodigoProducto;
         this.manejadorObtenerByNombreProducto = manejadorObtenerByNombreProducto;
         this.manejadorObtenerProductoById = manejadorObtenerProductoById;
+        this.manejadorCrearMovimiento=manejadorCrearMovimiento;
     }
 
     @GetMapping()
@@ -112,14 +118,14 @@ public class ControladorProducto {
                 , nombre, descripcion, precio, stock, categoría, codigo, fechaCreacion);
         this.manejadorCrearProducto.ejecutar(comandoProducto);
 
-       /* Producto producto=new Producto(id ,nombre,descripcion,precio,stock,categoría,codigo,fechaCreacion);
+       Producto producto=new Producto(id ,nombre,descripcion,precio,stock,categoría,codigo,fechaCreacion);
 
         agregarMovimiento(producto,0, TipoMovimientoEnum.ENTRADA
-        ,descripcion , 1, fechaCreacion);*/
+        ,descripcion , 1, fechaCreacion);
     }
 
-   /* private void agregarMovimiento(Producto producto, int id, TipoMovimientoEnum tipo, String descripcion, int cantidad, Date fechaCreación) {
+  private void agregarMovimiento(Producto producto, int id, TipoMovimientoEnum tipo, String descripcion, int cantidad, Date fechaCreación) {
         ComandoMovimiento comandoMovimiento = new ComandoMovimiento(id,producto,tipo,cantidad,fechaCreación,descripcion);
-        this.manejadorCrearMovimiento.ejecutar(comandoMovimiento);
-    }}*/
+        this.manejadorCrearMovimiento.ejecutar(comandoMovimiento,producto);
+    }
 }

@@ -39,11 +39,17 @@ public class RepositorioMovimientoPersistente implements RepositorioMovimiento {
 
 
     @Override
-    public void agregar(Movimiento movimiento) {
-        MovimientoEntity movimientoEntity = MovmientoBuilder.convertirToEntity(movimiento);
-        entityManager.persist(movimientoEntity);
-        entityManager.flush();
-    }
+    public void agregar(Movimiento movimiento,Producto productos) {
+        MovimientoEntity movimientoEntity = MovmientoBuilder.convertirToEntity(movimiento,productos);
+       try {
+           entityManager.persist(movimientoEntity);
+           entityManager.flush();
+       }
+       catch(Exception ex){
+           System.out.println(ex.getMessage());
+       }
+
+       }
 
     @Override
     public List<Movimiento> getAll() {

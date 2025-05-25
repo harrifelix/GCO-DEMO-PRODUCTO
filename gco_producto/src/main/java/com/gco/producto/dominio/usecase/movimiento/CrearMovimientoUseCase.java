@@ -14,7 +14,7 @@ public class CrearMovimientoUseCase {
         this.repositorioMovimiento = repositorioMovimiento;
     }
 
-    public void ejecutar(Movimiento movimiento) {
-        this.repositorioMovimiento.agregar(movimiento);
+    public void ejecutar(Movimiento movimiento,Producto productos) {
+        this.repositorioMovimiento.agregar(movimiento,productos);
     }
 }

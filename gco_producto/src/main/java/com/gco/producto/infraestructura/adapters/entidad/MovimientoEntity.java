@@ -16,7 +16,8 @@ public class MovimientoEntity {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	@ManyToOne
+
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "ID_PRODUCTO", referencedColumnName = "id")
 	private ProductoEntity producto;
 	@Column(nullable = false)

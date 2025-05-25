@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface RepositorioMovimiento {
 
-    void agregar(Movimiento movimiento);
+    void agregar(Movimiento movimiento,Producto productos);
     List<Movimiento> getAll();
 }

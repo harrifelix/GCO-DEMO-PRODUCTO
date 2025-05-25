@@ -23,10 +23,10 @@ public final class MovmientoBuilder {
     }
 
 
-    public static MovimientoEntity convertirToEntity(Movimiento movimiento) {
+    public static MovimientoEntity convertirToEntity(Movimiento movimiento,Producto producto) {
         MovimientoEntity movimientoEntity = new MovimientoEntity();
         movimientoEntity.setCantidad(movimiento.getId());
-        movimientoEntity.setProducto(null);
+        movimientoEntity.setProducto(ProductoBuilder.convertirToEntity(producto));
         movimientoEntity.setTipo(movimiento.getTipo());
         movimientoEntity.setCantidad(movimiento.getCantidad());
         movimientoEntity.setFecha(movimiento.getFecha());
