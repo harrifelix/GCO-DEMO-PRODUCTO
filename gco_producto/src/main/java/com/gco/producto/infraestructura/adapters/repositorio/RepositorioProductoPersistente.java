@@ -1,6 +1,6 @@
 package com.gco.producto.infraestructura.adapters.repositorio;
 
-import com.gco.producto.dominio.Producto;
+import com.gco.producto.dominio.usecase.entities.Producto;
 import com.gco.producto.dominio.gateway.RepositorioLibro;
 import com.gco.producto.infraestructura.adapters.builder.ProductoBuilder;
 import com.gco.producto.infraestructura.adapters.entidad.ProductoEntity;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class RepositorioLibroPersistente implements RepositorioLibro {
+public class RepositorioProductoPersistente implements RepositorioLibro {
 
     private static final String ID = "id";
 
@@ -30,7 +30,7 @@ public class RepositorioLibroPersistente implements RepositorioLibro {
     private final EntityManager entityManager;
 
 
-    public RepositorioLibroPersistente(EntityManager entityManager) {
+    public RepositorioProductoPersistente(EntityManager entityManager) {
 
         this.entityManager = entityManager;
 

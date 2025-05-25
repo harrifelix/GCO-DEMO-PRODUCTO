@@ -1,15 +1,15 @@
 package com.gco.producto.dominio.usecase.producto;
 
-import com.gco.producto.dominio.Producto;
-import com.gco.producto.infraestructura.adapters.repositorio.RepositorioLibroPersistente;
+import com.gco.producto.dominio.usecase.entities.Producto;
+import com.gco.producto.infraestructura.adapters.repositorio.RepositorioProductoPersistente;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ObtenerProductoByCodigoUseCase {
 
-    private final RepositorioLibroPersistente repositorioLibro;
+    private final RepositorioProductoPersistente repositorioLibro;
 
-    public ObtenerProductoByCodigoUseCase(RepositorioLibroPersistente repositorioLibro) {
+    public ObtenerProductoByCodigoUseCase(RepositorioProductoPersistente repositorioLibro) {
         this.repositorioLibro = repositorioLibro;
     }
 

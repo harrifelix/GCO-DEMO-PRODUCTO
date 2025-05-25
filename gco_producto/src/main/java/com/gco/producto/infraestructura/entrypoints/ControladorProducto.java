@@ -1,9 +1,10 @@
 package com.gco.producto.infraestructura.entrypoints;
 
 import com.gco.producto.aplicacion.manejadores.producto.ManejadorCrearProducto;
+import com.gco.producto.dominio.usecase.entities.Producto;
 import org.springframework.web.bind.annotation.*;
 import com.gco.producto.aplicacion.manejadores.producto.*;
-import com.gco.producto.dominio.*;
+
 import java.util.Date;
 import java.util.List;
 import com.gco.producto.aplicacion.comando.*;

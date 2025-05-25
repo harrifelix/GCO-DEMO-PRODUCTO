@@ -1,4 +1,4 @@
-package com.gco.producto.dominio;
+package com.gco.producto.dominio.usecase.entities;
 
 import java.util.Date;
 

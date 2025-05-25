@@ -1,6 +1,6 @@
 package com.gco.producto.infraestructura.adapters.builder;
 
-import com.gco.producto.dominio.Producto;
+import com.gco.producto.dominio.usecase.entities.Producto;
 import com.gco.producto.infraestructura.adapters.entidad.ProductoEntity;
 
 public final class ProductoBuilder {

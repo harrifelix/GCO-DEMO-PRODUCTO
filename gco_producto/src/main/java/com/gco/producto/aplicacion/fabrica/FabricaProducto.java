@@ -1,11 +1,11 @@
 package com.gco.producto.aplicacion.fabrica;
 
 import com.gco.producto.aplicacion.comando.ComandoProducto;
-import com.gco.producto.dominio.Producto;
+import com.gco.producto.dominio.usecase.entities.Producto;
 import org.springframework.stereotype.Component;
 
 @Component
-public class FabricaLibro {
+public class FabricaProducto {
     public Producto crearLibro(ComandoProducto comandoProducto) {
         return new Producto(
                 comandoProducto.getId(), comandoProducto.getNombre()

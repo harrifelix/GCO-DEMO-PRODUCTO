@@ -1,9 +1,7 @@
 package com.gco.producto.aplicacion.manejadores.producto;
 
 import com.gco.producto.dominio.usecase.producto.*;
-import com.gco.producto.aplicacion.fabrica.FabricaLibro;
-import com.gco.producto.dominio.Producto;
-import com.gco.producto.dominio.usecase.producto.CrearProductoUseCase;
+import com.gco.producto.aplicacion.fabrica.FabricaProducto;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,11 +9,11 @@ import org.springframework.transaction.annotation.Transactional;
 public class ManejadorEliminarProducto {
 
     private final EliminarProductoUseCase eliminarProductoUseCase;
-    private final FabricaLibro fabricaLibro;
+    private final FabricaProducto fabricaProducto;
 
-    public ManejadorEliminarProducto(EliminarProductoUseCase eliminarProductoUseCase, FabricaLibro fabricaLibro) {
+    public ManejadorEliminarProducto(EliminarProductoUseCase eliminarProductoUseCase, FabricaProducto fabricaProducto) {
         this.eliminarProductoUseCase = eliminarProductoUseCase;
-        this.fabricaLibro = fabricaLibro;
+        this.fabricaProducto = fabricaProducto;
     }
 
     @Transactional
