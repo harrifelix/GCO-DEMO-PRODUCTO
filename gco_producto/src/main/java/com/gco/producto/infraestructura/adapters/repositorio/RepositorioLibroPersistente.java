@@ -56,8 +56,9 @@ public class RepositorioLibroPersistente implements RepositorioLibro {
     }
 
     @Override
-    public void eliminar(Producto producto) {
-        ProductoEntity movimientoEntity = ProductoBuilder.convertirToEntity(producto);
+    public void eliminar(String id) {
+
+        ProductoEntity movimientoEntity =  obtenerPrestamoEntityById(id);
 
         entityManager.remove(movimientoEntity);
         entityManager.flush();
@@ -66,7 +67,7 @@ public class RepositorioLibroPersistente implements RepositorioLibro {
 
     @Override
     public Producto obtenerById(String id) {
-        ProductoEntity movimientoEntity = (ProductoEntity) obtenerPrestamoEntityById(id);
+        ProductoEntity movimientoEntity =  obtenerPrestamoEntityById(id);
 
         if (movimientoEntity == null) {
             return null;
@@ -145,12 +146,16 @@ public class RepositorioLibroPersistente implements RepositorioLibro {
     private ProductoEntity obtenerPrestamoEntityById(String id) {
 
         Query query = entityManager.createNamedQuery(PRODUCTO_FIND_BY_ID);
-        long ids = Long.parseLong(id);
-        query.setParameter(ID, ids);
-
+        int ids = Integer.parseInt(id);
+        try {
+            query.setParameter(ID, ids);
+        }
+        catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
         List resultList = query.getResultList();
 
-        return !resultList.isEmpty() ? (ProductoEntity) resultList : null;
+        return !resultList.isEmpty() ? (ProductoEntity) resultList.get(0) : null;
     }
 
     private ProductoEntity obtenerProductoByNombre(String isbn) {

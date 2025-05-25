@@ -5,11 +5,11 @@ import com.gco.producto.infraestructura.adapters.repositorio.RepositorioLibroPer
 import org.springframework.stereotype.Component;
 
 @Component
-public class ObtenerProductoByIdUseCase {
+public class ObtenerProductoUseCase {
 
     private final RepositorioLibroPersistente repositorioLibro;
 
-    public ObtenerProductoByIdUseCase(RepositorioLibroPersistente repositorioLibro) {
+    public ObtenerProductoUseCase(RepositorioLibroPersistente repositorioLibro) {
         this.repositorioLibro = repositorioLibro;
     }
 

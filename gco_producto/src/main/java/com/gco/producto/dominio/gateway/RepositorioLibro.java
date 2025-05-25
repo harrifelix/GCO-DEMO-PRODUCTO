@@ -11,7 +11,7 @@ public interface RepositorioLibro {
 
     void actualizar(Producto producto);
 
-    void eliminar(Producto producto);
+    void eliminar(String id);
 
     Producto obtenerById(String id);
 

@@ -14,7 +14,7 @@ public class EliminarProductoUseCase {
         this.repositorioLibro = repositorioLibro;
     }
 
-    public void ejecutar(Producto producto) {
-        this.repositorioLibro.eliminar(producto);
+    public void ejecutar(String id) {
+        this.repositorioLibro.eliminar(id);
     }
 }

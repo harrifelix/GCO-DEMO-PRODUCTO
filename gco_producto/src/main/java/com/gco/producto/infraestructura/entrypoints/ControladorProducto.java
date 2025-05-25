@@ -81,9 +81,9 @@ public class ControladorProducto {
         return this.manejadorObtenerByCodigoProducto.ejecutar(codigo);
     }
 
-    @DeleteMapping()
-    public void Eliminar(@RequestBody ComandoProducto comandoProducto) {
-        this.manejadorEliminarProducto.ejecutar(comandoProducto);
+    @DeleteMapping("{id}")
+    public void Eliminar(@PathVariable(name = "id") String id) {
+        this.manejadorEliminarProducto.ejecutar(id);
     }
 
     @PutMapping()

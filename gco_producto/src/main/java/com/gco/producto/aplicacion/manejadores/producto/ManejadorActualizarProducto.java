@@ -6,14 +6,15 @@ import com.gco.producto.dominio.Producto;
 import com.gco.producto.dominio.usecase.producto.CrearProductoUseCase;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+import  com.gco.producto.dominio.usecase.producto.*;
 
 @Component
 public class ManejadorActualizarProducto {
 
-    private final CrearProductoUseCase crearProductoUseCase;
+    private final ActualizarProductoUseCase crearProductoUseCase;
     private final FabricaLibro fabricaLibro;
 
-    public ManejadorActualizarProducto(CrearProductoUseCase crearProductoUseCase, FabricaLibro fabricaLibro) {
+    public ManejadorActualizarProducto(ActualizarProductoUseCase crearProductoUseCase, FabricaLibro fabricaLibro) {
         this.crearProductoUseCase = crearProductoUseCase;
         this.fabricaLibro = fabricaLibro;
     }
