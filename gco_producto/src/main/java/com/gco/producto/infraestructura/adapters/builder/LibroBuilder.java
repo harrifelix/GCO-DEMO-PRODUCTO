@@ -1,17 +1,17 @@
-package com.gco.producto.infraestructura.persistencia.builder;
+package com.gco.producto.infraestructura.adapters.builder;
 
-import com.gco.producto.dominio.Libro;
-import com.gco.producto.infraestructura.persistencia.entidad.LibroEntity;
+import com.gco.producto.dominio.Producto;
+import com.gco.producto.infraestructura.adapters.entidad.ProductoEntity;
 
 public final class LibroBuilder {
 
     private LibroBuilder() {
     }
 
-    public static Libro convertirToDominio(LibroEntity productoEntity) {
-        Libro producto = null;
+    public static Producto convertirToDominio(ProductoEntity productoEntity) {
+        Producto producto = null;
         if (productoEntity != null) {
-            producto = new Libro(productoEntity.getId(), productoEntity.getNombre(),
+            producto = new Producto(productoEntity.getId(), productoEntity.getNombre(),
                     productoEntity.getDescripcion(),productoEntity.getPrecio(),
                     productoEntity.getStock(),productoEntity.getCategoria(), productoEntity.getCodigo(),
                     productoEntity.getFechaCreacion() );
@@ -20,8 +20,8 @@ public final class LibroBuilder {
     }
 
 
-    public static LibroEntity convertirToEntity(Libro producto) {
-        LibroEntity productoEntity = new LibroEntity();
+    public static ProductoEntity convertirToEntity(Producto producto) {
+        ProductoEntity productoEntity = new ProductoEntity();
         productoEntity.setId(producto.getId());
         productoEntity.setNombre(producto.getNombre());
         productoEntity.setDescripcion(producto.getDescripcion());

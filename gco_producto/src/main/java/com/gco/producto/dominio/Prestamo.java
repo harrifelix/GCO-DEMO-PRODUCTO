@@ -5,18 +5,18 @@ import java.util.Date;
 public class Prestamo {
 
     private final Date fechaSolicitud;
-    private final Libro libro;
+    private final Producto producto;
     private Date fechaEntregaMaxima;
     private String nombreUsuario;
 
-    public Prestamo(Libro libro) {
+    public Prestamo(Producto producto) {
         this.fechaSolicitud = new Date();
-        this.libro = libro;
+        this.producto = producto;
     }
 
-    public Prestamo(Date fechaSolicitud, Libro libro, Date fechaEntregaMaxima, String nombreUsuario) {
+    public Prestamo(Date fechaSolicitud, Producto producto, Date fechaEntregaMaxima, String nombreUsuario) {
         this.fechaSolicitud = fechaSolicitud;
-        this.libro = libro;
+        this.producto = producto;
         this.fechaEntregaMaxima = fechaEntregaMaxima;
         this.nombreUsuario = nombreUsuario;
     }
@@ -25,8 +25,8 @@ public class Prestamo {
         return fechaSolicitud;
     }
 
-    public Libro getLibro() {
-        return libro;
+    public Producto getLibro() {
+        return producto;
     }
 
     public Date getFechaEntregaMaxima() {

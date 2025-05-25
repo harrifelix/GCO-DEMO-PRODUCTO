@@ -1,4 +1,4 @@
-package com.gco.producto.infraestructura.persistencia.entidad;
+package com.gco.producto.infraestructura.adapters.entidad;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -11,7 +11,7 @@ import java.util.Date;
 		@NamedQuery(name = "Producto.findByCodigo", query = "SELECT producto from Producto producto where producto.codigo = :codigo"),
 		@NamedQuery(name = "Producto.findAll", query = "SELECT producto from Producto producto")
 })
-public class LibroEntity {
+public class ProductoEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -38,7 +38,7 @@ public class LibroEntity {
 
 	@Column(nullable = false)
 	private Date fechaCreacion;
-	public LibroEntity(int id, String nombre, String descripcion, double precio, int stock, String categoria, String codigo, Date fechaCreacion) {
+	public ProductoEntity(int id, String nombre, String descripcion, double precio, int stock, String categoria, String codigo, Date fechaCreacion) {
 		this.setId(id);
 		this.setNombre(nombre);
 		this.setDescripcion(descripcion);
@@ -49,7 +49,7 @@ public class LibroEntity {
 		this.setFechaCreacion(fechaCreacion);
 	}
 
-	public LibroEntity(){}
+	public ProductoEntity(){}
 
 
 	public int getId() {

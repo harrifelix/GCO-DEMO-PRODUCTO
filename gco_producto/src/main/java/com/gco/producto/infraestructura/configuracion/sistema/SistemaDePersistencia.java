@@ -1,8 +1,8 @@
 package com.gco.producto.infraestructura.configuracion.sistema;
 
-import com.gco.producto.dominio.repositorio.RepositorioLibro;
+import com.gco.producto.dominio.gateway.RepositorioLibro;
 import com.gco.producto.infraestructura.configuracion.conexion.ConexionJPA;
-import com.gco.producto.infraestructura.persistencia.repositorio.RepositorioLibroPersistente;
+import com.gco.producto.infraestructura.adapters.repositorio.RepositorioLibroPersistente;
 
 import javax.persistence.EntityManager;
 

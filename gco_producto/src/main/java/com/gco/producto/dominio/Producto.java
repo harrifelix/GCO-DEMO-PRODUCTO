@@ -1,9 +1,8 @@
-package com.gco.producto.aplicacion.comando;
-
+package com.gco.producto.dominio;
 
 import java.util.Date;
 
-public class ComandoLibro {
+public class Producto {
 
     private final int id;
     private final String nombre;
@@ -14,7 +13,7 @@ public class ComandoLibro {
     private final String codigo;
     private final Date fechaCreacion;
 
-    public ComandoLibro(int id, String nombre, String descripcion, double precio, int stock, String categoria, String codigo, Date fechaCreacion) {
+    public Producto(int id, String nombre, String descripcion, double precio, int stock, String categoria, String codigo, Date fechaCreacion) {
         this.id=id;
         this.nombre=nombre;
         this.descripcion = descripcion;
@@ -24,6 +23,7 @@ public class ComandoLibro {
         this.codigo = codigo;
         this.fechaCreacion = fechaCreacion;
     }
+
 
     public int getId() {
         return id;
@@ -56,5 +56,6 @@ public class ComandoLibro {
     public Date getFechaCreacion() {
         return fechaCreacion;
     }
-}
 
+
+}

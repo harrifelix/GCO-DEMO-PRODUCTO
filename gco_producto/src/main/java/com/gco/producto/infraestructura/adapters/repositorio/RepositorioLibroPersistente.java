@@ -1,10 +1,9 @@
-package com.gco.producto.infraestructura.persistencia.repositorio;
+package com.gco.producto.infraestructura.adapters.repositorio;
 
-import com.gco.producto.dominio.Libro;
-import com.gco.producto.dominio.repositorio.RepositorioLibro;
-import com.gco.producto.infraestructura.persistencia.builder.LibroBuilder;
-import com.gco.producto.infraestructura.persistencia.entidad.LibroEntity;
-import com.gco.producto.infraestructura.persistencia.repositorio.jpa.RepositorioLibroJPA;
+import com.gco.producto.dominio.Producto;
+import com.gco.producto.dominio.gateway.RepositorioLibro;
+import com.gco.producto.infraestructura.adapters.builder.LibroBuilder;
+import com.gco.producto.infraestructura.adapters.entidad.ProductoEntity;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -39,8 +38,8 @@ public class RepositorioLibroPersistente implements RepositorioLibro {
 
 
     @Override
-    public void agregar(Libro producto) {
-        LibroEntity movimientoEntity = LibroBuilder.convertirToEntity(producto);
+    public void agregar(Producto producto) {
+        ProductoEntity movimientoEntity = LibroBuilder.convertirToEntity(producto);
 
         entityManager.persist(movimientoEntity);
         entityManager.flush();
@@ -48,8 +47,8 @@ public class RepositorioLibroPersistente implements RepositorioLibro {
     }
 
     @Override
-    public void actualizar(Libro producto) {
-        LibroEntity movimientoEntity = LibroBuilder.convertirToEntity(producto);
+    public void actualizar(Producto producto) {
+        ProductoEntity movimientoEntity = LibroBuilder.convertirToEntity(producto);
 
         entityManager.merge(movimientoEntity);
         entityManager.flush();
@@ -57,8 +56,8 @@ public class RepositorioLibroPersistente implements RepositorioLibro {
     }
 
     @Override
-    public void eliminar(Libro producto) {
-        LibroEntity movimientoEntity = LibroBuilder.convertirToEntity(producto);
+    public void eliminar(Producto producto) {
+        ProductoEntity movimientoEntity = LibroBuilder.convertirToEntity(producto);
 
         entityManager.remove(movimientoEntity);
         entityManager.flush();
@@ -66,14 +65,14 @@ public class RepositorioLibroPersistente implements RepositorioLibro {
     }
 
     @Override
-    public Libro obtenerById(String id) {
-        LibroEntity movimientoEntity = (LibroEntity) obtenerPrestamoEntityByIdPrestamo(id);
+    public Producto obtenerById(String id) {
+        ProductoEntity movimientoEntity = (ProductoEntity) obtenerPrestamoEntityByIdPrestamo(id);
 
         if (movimientoEntity == null) {
             return null;
         }
 
-        return new Libro(
+        return new Producto(
                 movimientoEntity.getId(), movimientoEntity.getNombre()
                 , movimientoEntity.getDescripcion(), movimientoEntity.getPrecio(),movimientoEntity.getStock()
                 ,movimientoEntity.getCategoria(),movimientoEntity.getCodigo(),movimientoEntity.getFechaCreacion());
@@ -81,14 +80,14 @@ public class RepositorioLibroPersistente implements RepositorioLibro {
     }
 
     @Override
-    public Libro obtenerByNombre(String id) {
-        LibroEntity movimientoEntity = (LibroEntity) obtenerProductoByNombre(id);
+    public Producto obtenerByNombre(String id) {
+        ProductoEntity movimientoEntity = (ProductoEntity) obtenerProductoByNombre(id);
 
         if (movimientoEntity == null) {
             return null;
         }
 
-        return new Libro(
+        return new Producto(
                 movimientoEntity.getId(), movimientoEntity.getNombre()
                 , movimientoEntity.getDescripcion(), movimientoEntity.getPrecio(),movimientoEntity.getStock()
                 ,movimientoEntity.getCategoria(),movimientoEntity.getCodigo(),movimientoEntity.getFechaCreacion());
@@ -96,14 +95,14 @@ public class RepositorioLibroPersistente implements RepositorioLibro {
     }
 
     @Override
-    public Libro obtenerByCodigo(String id) {
-        LibroEntity movimientoEntity = (LibroEntity) obtenerProductoByCodigo(id);
+    public Producto obtenerByCodigo(String id) {
+        ProductoEntity movimientoEntity = (ProductoEntity) obtenerProductoByCodigo(id);
 
         if (movimientoEntity == null) {
             return null;
         }
 
-        return new Libro(
+        return new Producto(
                 movimientoEntity.getId(), movimientoEntity.getNombre()
                 , movimientoEntity.getDescripcion(), movimientoEntity.getPrecio(),movimientoEntity.getStock()
                 ,movimientoEntity.getCategoria(),movimientoEntity.getCodigo(),movimientoEntity.getFechaCreacion());
@@ -111,14 +110,14 @@ public class RepositorioLibroPersistente implements RepositorioLibro {
     }
 
     @Override
-    public Libro obtenerByCategoria(String id) {
-        LibroEntity movimientoEntity = (LibroEntity) obtenerProductoByCategoria(id);
+    public Producto obtenerByCategoria(String id) {
+        ProductoEntity movimientoEntity = (ProductoEntity) obtenerProductoByCategoria(id);
 
         if (movimientoEntity == null) {
             return null;
         }
 
-        return new Libro(
+        return new Producto(
                 movimientoEntity.getId(), movimientoEntity.getNombre()
                 , movimientoEntity.getDescripcion(), movimientoEntity.getPrecio(),movimientoEntity.getStock()
                 ,movimientoEntity.getCategoria(),movimientoEntity.getCodigo(),movimientoEntity.getFechaCreacion());
@@ -126,15 +125,15 @@ public class RepositorioLibroPersistente implements RepositorioLibro {
     }
 
     @Override
-    public List<Libro> getAll() {
-        List<LibroEntity> productoEntity =  obtenerTodos();
-        List<Libro> listProducto=new ArrayList<Libro>();
+    public List<Producto> getAll() {
+        List<ProductoEntity> productoEntity =  obtenerTodos();
+        List<Producto> listProducto=new ArrayList<Producto>();
         if (productoEntity == null) {
             return null;
         }
-        for (LibroEntity p:productoEntity
+        for (ProductoEntity p:productoEntity
         ) {
-            Libro producto= new Libro(
+            Producto producto= new Producto(
                     p.getId(), p.getNombre()
                     , p.getDescripcion(), p.getPrecio(),p.getStock()
                     ,p.getCategoria(),p.getCodigo(),p.getFechaCreacion());
@@ -143,7 +142,7 @@ public class RepositorioLibroPersistente implements RepositorioLibro {
         return  listProducto;
     }
 
-    private List<LibroEntity> obtenerPrestamoEntityByIdPrestamo(String idS) {
+    private List<ProductoEntity> obtenerPrestamoEntityByIdPrestamo(String idS) {
 
         Query query = entityManager.createNamedQuery(PRODUCTO_FIND_BY_ID);
         long id = Long.parseLong(idS);
@@ -151,44 +150,44 @@ public class RepositorioLibroPersistente implements RepositorioLibro {
 
         List resultList = query.getResultList();
 
-        return !resultList.isEmpty() ? (List<LibroEntity>) resultList : null;
+        return !resultList.isEmpty() ? (List<ProductoEntity>) resultList : null;
     }
 
-    private LibroEntity obtenerProductoByNombre(String isbn) {
+    private ProductoEntity obtenerProductoByNombre(String isbn) {
 
         Query query = entityManager.createNamedQuery(PRODUCTO_FIND_BY_NOMBRE);
         query.setParameter(NOMBRE, isbn);
 
         List resultList = query.getResultList();
 
-        return !resultList.isEmpty() ? (LibroEntity) resultList.get(0) : null;
+        return !resultList.isEmpty() ? (ProductoEntity) resultList.get(0) : null;
     }
 
-    private LibroEntity obtenerProductoByCodigo(String isbn) {
+    private ProductoEntity obtenerProductoByCodigo(String isbn) {
 
         Query query = entityManager.createNamedQuery(PRODUCTO_FIND_BY_CODIGO);
         query.setParameter(CODIGO, isbn);
 
         List resultList = query.getResultList();
 
-        return !resultList.isEmpty() ? (LibroEntity) resultList.get(0) : null;
+        return !resultList.isEmpty() ? (ProductoEntity) resultList.get(0) : null;
     }
 
-    private LibroEntity obtenerProductoByCategoria(String isbn) {
+    private ProductoEntity obtenerProductoByCategoria(String isbn) {
 
         Query query = entityManager.createNamedQuery(PRODUCTO_FIND_BY_CATEGORIA);
         query.setParameter(CATEGORIA, isbn);
 
         List resultList = query.getResultList();
 
-        return !resultList.isEmpty() ? (LibroEntity) resultList.get(0) : null;
+        return !resultList.isEmpty() ? (ProductoEntity) resultList.get(0) : null;
     }
 
-    private List<LibroEntity> obtenerTodos() {
+    private List<ProductoEntity> obtenerTodos() {
 
         Query query = entityManager.createNamedQuery(PRODUCTO_FIND_BY_ALL);
         List resultList = query.getResultList();
 
-        return !resultList.isEmpty() ? (List<LibroEntity>) resultList: null;
+        return !resultList.isEmpty() ? (List<ProductoEntity>) resultList: null;
     }
 }
