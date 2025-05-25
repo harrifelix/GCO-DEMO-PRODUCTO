@@ -1,8 +1,8 @@
 package com.gco.producto.infraestructura.entrypoints;
 
-import com.gco.producto.aplicacion.manejadores.libro.ManejadorCrearProducto;
+import com.gco.producto.aplicacion.manejadores.producto.ManejadorCrearProducto;
 import org.springframework.web.bind.annotation.*;
-import com.gco.producto.aplicacion.manejadores.libro.*;
+import com.gco.producto.aplicacion.manejadores.producto.*;
 import com.gco.producto.dominio.*;
 import java.util.Date;
 import java.util.List;
@@ -16,6 +16,9 @@ import org.springframework.http.ResponseEntity;
 public class ControladorProducto {
     private final ManejadorObtenerProductos
             manejadorObtenerProductosa;
+
+    private final ManejadorObtenerProductoById
+            manejadorObtenerProductoById;
 
     private final ManejadorCrearProducto manejadorCrearProducto;
 
@@ -40,7 +43,9 @@ public class ControladorProducto {
             , ManejadorActualizarProducto manejadorActualizarProducto
             , ManejadorObtenerProductoByCategoria manejadorObtenerByCategoriaProducto
             , ManejadorObtenerProductoByCodigo manejadorObtenerByCodigoProducto
-            , ManejadorObtenerProductoByNombre manejadorObtenerByNombreProducto) {
+            , ManejadorObtenerProductoByNombre manejadorObtenerByNombreProducto
+    , ManejadorObtenerProductoById
+                                       manejadorObtenerProductoById) {
         this.manejadorCrearProducto = manejadorCrearProducto;
         this.manejadorObtenerProductosa = manejadorObtenerProductosa;
         this.manejadorEliminarProducto = manejadorEliminarProducto;
@@ -48,6 +53,7 @@ public class ControladorProducto {
         this.manejadorObtenerByCategoriaProducto = manejadorObtenerByCategoriaProducto;
         this.manejadorObtenerByCodigoProducto = manejadorObtenerByCodigoProducto;
         this.manejadorObtenerByNombreProducto = manejadorObtenerByNombreProducto;
+        this.manejadorObtenerProductoById = manejadorObtenerProductoById;
     }
 
     @GetMapping()
@@ -58,6 +64,11 @@ public class ControladorProducto {
     @GetMapping("byNombre/{nombre}")
     public Producto getByNombre(@PathVariable(name = "nombre") String nombre) {
         return this.manejadorObtenerByNombreProducto.ejecutar(nombre);
+    }
+
+    @GetMapping("byId/{id}")
+    public Producto getById(@PathVariable(name = "id") String id) {
+        return this.manejadorObtenerProductoById.ejecutar(id);
     }
 
     @GetMapping("byCategoria/{categoria}")

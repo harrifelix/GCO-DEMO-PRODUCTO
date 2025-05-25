@@ -1,4 +1,4 @@
-package com.gco.producto.aplicacion.manejadores.libro;
+package com.gco.producto.aplicacion.manejadores.producto;
 
 import com.gco.producto.dominio.Producto;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.gco.producto.aplicacion.manejadores.libro;
+package com.gco.producto.aplicacion.manejadores.producto;
 
 import com.gco.producto.aplicacion.comando.ComandoProducto;
 import com.gco.producto.aplicacion.fabrica.FabricaLibro;
@@ -8,12 +8,12 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 @Component
-public class ManejadorActualizarProducto {
+public class ManejadorCrearProducto {
 
     private final CrearProductoUseCase crearProductoUseCase;
     private final FabricaLibro fabricaLibro;
 
-    public ManejadorActualizarProducto(CrearProductoUseCase crearProductoUseCase, FabricaLibro fabricaLibro) {
+    public ManejadorCrearProducto(CrearProductoUseCase crearProductoUseCase, FabricaLibro fabricaLibro) {
         this.crearProductoUseCase = crearProductoUseCase;
         this.fabricaLibro = fabricaLibro;
     }

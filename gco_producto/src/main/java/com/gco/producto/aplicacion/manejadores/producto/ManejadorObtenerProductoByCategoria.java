@@ -1,16 +1,17 @@
-package com.gco.producto.aplicacion.manejadores.libro;
+package com.gco.producto.aplicacion.manejadores.producto;
 
 import com.gco.producto.dominio.Producto;
-import com.gco.producto.dominio.usecase.producto.ObtenerProductoUseCase;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import com.gco.producto.dominio.usecase.producto.*;
+
 
 @Service
-public class ManejadorObtenerProductoByNombre {
+public class ManejadorObtenerProductoByCategoria {
 
-    private final ObtenerProductoUseCase servicioObtenerProducto;
+    private final ObtenerProductoByCategoriaUseCase servicioObtenerProducto;
 
-    public ManejadorObtenerProductoByNombre(ObtenerProductoUseCase servicioObtenerProducto) {
+    public ManejadorObtenerProductoByCategoria(ObtenerProductoByCategoriaUseCase servicioObtenerProducto) {
         this.servicioObtenerProducto = servicioObtenerProducto;
     }
 

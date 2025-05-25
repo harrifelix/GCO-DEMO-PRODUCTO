@@ -3,9 +3,9 @@ package com.gco.producto.infraestructura.adapters.builder;
 import com.gco.producto.dominio.Producto;
 import com.gco.producto.infraestructura.adapters.entidad.ProductoEntity;
 
-public final class LibroBuilder {
+public final class ProductoBuilder {
 
-    private LibroBuilder() {
+    private ProductoBuilder() {
     }
 
     public static Producto convertirToDominio(ProductoEntity productoEntity) {

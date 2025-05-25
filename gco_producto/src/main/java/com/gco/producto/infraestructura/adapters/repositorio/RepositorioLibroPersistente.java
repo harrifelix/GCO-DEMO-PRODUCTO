@@ -2,7 +2,7 @@ package com.gco.producto.infraestructura.adapters.repositorio;
 
 import com.gco.producto.dominio.Producto;
 import com.gco.producto.dominio.gateway.RepositorioLibro;
-import com.gco.producto.infraestructura.adapters.builder.LibroBuilder;
+import com.gco.producto.infraestructura.adapters.builder.ProductoBuilder;
 import com.gco.producto.infraestructura.adapters.entidad.ProductoEntity;
 import org.springframework.stereotype.Repository;
 
@@ -25,7 +25,7 @@ public class RepositorioLibroPersistente implements RepositorioLibro {
     private static final String PRODUCTO_FIND_BY_CATEGORIA = "Producto.findByCategoria";
     private static final String PRODUCTO_FIND_BY_CODIGO = "Producto.findByCodigo";
 
-    private static final String PRODUCTO_FIND_BY_ID = "Prestamo.findByIdentificacion";
+    private static final String PRODUCTO_FIND_BY_ID = "Producto.findById";
 
     private final EntityManager entityManager;
 
@@ -39,7 +39,7 @@ public class RepositorioLibroPersistente implements RepositorioLibro {
 
     @Override
     public void agregar(Producto producto) {
-        ProductoEntity movimientoEntity = LibroBuilder.convertirToEntity(producto);
+        ProductoEntity movimientoEntity = ProductoBuilder.convertirToEntity(producto);
 
         entityManager.persist(movimientoEntity);
         entityManager.flush();
@@ -48,7 +48,7 @@ public class RepositorioLibroPersistente implements RepositorioLibro {
 
     @Override
     public void actualizar(Producto producto) {
-        ProductoEntity movimientoEntity = LibroBuilder.convertirToEntity(producto);
+        ProductoEntity movimientoEntity = ProductoBuilder.convertirToEntity(producto);
 
         entityManager.merge(movimientoEntity);
         entityManager.flush();
@@ -57,7 +57,7 @@ public class RepositorioLibroPersistente implements RepositorioLibro {
 
     @Override
     public void eliminar(Producto producto) {
-        ProductoEntity movimientoEntity = LibroBuilder.convertirToEntity(producto);
+        ProductoEntity movimientoEntity = ProductoBuilder.convertirToEntity(producto);
 
         entityManager.remove(movimientoEntity);
         entityManager.flush();
@@ -66,7 +66,7 @@ public class RepositorioLibroPersistente implements RepositorioLibro {
 
     @Override
     public Producto obtenerById(String id) {
-        ProductoEntity movimientoEntity = (ProductoEntity) obtenerPrestamoEntityByIdPrestamo(id);
+        ProductoEntity movimientoEntity = (ProductoEntity) obtenerPrestamoEntityById(id);
 
         if (movimientoEntity == null) {
             return null;
@@ -142,15 +142,15 @@ public class RepositorioLibroPersistente implements RepositorioLibro {
         return  listProducto;
     }
 
-    private List<ProductoEntity> obtenerPrestamoEntityByIdPrestamo(String idS) {
+    private ProductoEntity obtenerPrestamoEntityById(String id) {
 
         Query query = entityManager.createNamedQuery(PRODUCTO_FIND_BY_ID);
-        long id = Long.parseLong(idS);
-        query.setParameter(ID, id);
+        long ids = Long.parseLong(id);
+        query.setParameter(ID, ids);
 
         List resultList = query.getResultList();
 
-        return !resultList.isEmpty() ? (List<ProductoEntity>) resultList : null;
+        return !resultList.isEmpty() ? (ProductoEntity) resultList : null;
     }
 
     private ProductoEntity obtenerProductoByNombre(String isbn) {
