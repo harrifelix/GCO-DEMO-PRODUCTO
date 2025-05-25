@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 
 @RestController
 @RequestMapping("/producto")
+@CrossOrigin("*")
 public class ControladorProducto {
     private final ManejadorObtenerProductos
             manejadorObtenerProductosa;
