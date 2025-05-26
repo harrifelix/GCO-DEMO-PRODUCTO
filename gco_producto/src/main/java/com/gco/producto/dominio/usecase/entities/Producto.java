@@ -11,9 +11,9 @@ public class Producto {
     private final int stock;
     private final String categoria;
     private final String codigo;
-    private final Date fechaCreacion;
+    private final Date fechacreacion;
 
-    public Producto(int id, String nombre, String descripcion, double precio, int stock, String categoria, String codigo, Date fechaCreacion) {
+    public Producto(int id, String nombre, String descripcion, double precio, int stock, String categoria, String codigo, Date fechacreacion) {
         this.id=id;
         this.nombre=nombre;
         this.descripcion = descripcion;
@@ -21,7 +21,7 @@ public class Producto {
         this.stock=stock;
         this.categoria = categoria;
         this.codigo = codigo;
-        this.fechaCreacion = fechaCreacion;
+        this.fechacreacion = fechacreacion;
     }
 
 
@@ -53,8 +53,8 @@ public class Producto {
         return codigo;
     }
 
-    public Date getFechaCreacion() {
-        return fechaCreacion;
+    public Date getFechacreacion() {
+        return fechacreacion;
     }
 
 

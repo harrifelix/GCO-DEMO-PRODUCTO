@@ -14,7 +14,7 @@ public final class ProductoBuilder {
             producto = new Producto(productoEntity.getId(), productoEntity.getNombre(),
                     productoEntity.getDescripcion(),productoEntity.getPrecio(),
                     productoEntity.getStock(),productoEntity.getCategoria(), productoEntity.getCodigo(),
-                    productoEntity.getFechaCreacion() );
+                    productoEntity.getFechacreacion() );
         }
         return producto;
     }
@@ -29,7 +29,7 @@ public final class ProductoBuilder {
         productoEntity.setStock(producto.getStock());
         productoEntity.setCategoria(producto.getCategoria());
         productoEntity.setCodigo(producto.getCodigo());
-        productoEntity.setFechaCreacion(producto.getFechaCreacion());
+        productoEntity.setFechacreacion(producto.getFechacreacion());
         return productoEntity;
     }
 }

@@ -95,7 +95,7 @@ public class ControladorProducto {
         this.manejadorEliminarProducto.ejecutar(id);
 
         agregarMovimiento(0,producto.getId(), TipoMovimientoEnum.SALIDA
-                ,producto.getDescripcion() , 1,producto.getFechaCreacion());
+                ,producto.getDescripcion() , 1,producto.getFechacreacion());
     }
 
     @PutMapping()

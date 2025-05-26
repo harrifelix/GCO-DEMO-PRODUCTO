@@ -77,7 +77,7 @@ public class RepositorioProductoPersistente implements RepositorioProductoGatewa
         return new Producto(
                 movimientoEntity.getId(), movimientoEntity.getNombre()
                 , movimientoEntity.getDescripcion(), movimientoEntity.getPrecio(),movimientoEntity.getStock()
-                ,movimientoEntity.getCategoria(),movimientoEntity.getCodigo(),movimientoEntity.getFechaCreacion());
+                ,movimientoEntity.getCategoria(),movimientoEntity.getCodigo(),movimientoEntity.getFechacreacion());
 
     }
 
@@ -92,7 +92,7 @@ public class RepositorioProductoPersistente implements RepositorioProductoGatewa
         return new Producto(
                 movimientoEntity.getId(), movimientoEntity.getNombre()
                 , movimientoEntity.getDescripcion(), movimientoEntity.getPrecio(),movimientoEntity.getStock()
-                ,movimientoEntity.getCategoria(),movimientoEntity.getCodigo(),movimientoEntity.getFechaCreacion());
+                ,movimientoEntity.getCategoria(),movimientoEntity.getCodigo(),movimientoEntity.getFechacreacion());
 
     }
 
@@ -107,7 +107,7 @@ public class RepositorioProductoPersistente implements RepositorioProductoGatewa
         return new Producto(
                 movimientoEntity.getId(), movimientoEntity.getNombre()
                 , movimientoEntity.getDescripcion(), movimientoEntity.getPrecio(),movimientoEntity.getStock()
-                ,movimientoEntity.getCategoria(),movimientoEntity.getCodigo(),movimientoEntity.getFechaCreacion());
+                ,movimientoEntity.getCategoria(),movimientoEntity.getCodigo(),movimientoEntity.getFechacreacion());
 
     }
 
@@ -122,7 +122,7 @@ public class RepositorioProductoPersistente implements RepositorioProductoGatewa
         return new Producto(
                 movimientoEntity.getId(), movimientoEntity.getNombre()
                 , movimientoEntity.getDescripcion(), movimientoEntity.getPrecio(),movimientoEntity.getStock()
-                ,movimientoEntity.getCategoria(),movimientoEntity.getCodigo(),movimientoEntity.getFechaCreacion());
+                ,movimientoEntity.getCategoria(),movimientoEntity.getCodigo(),movimientoEntity.getFechacreacion());
 
     }
 
@@ -138,7 +138,7 @@ public class RepositorioProductoPersistente implements RepositorioProductoGatewa
             Producto producto= new Producto(
                     p.getId(), p.getNombre()
                     , p.getDescripcion(), p.getPrecio(),p.getStock()
-                    ,p.getCategoria(),p.getCodigo(),p.getFechaCreacion());
+                    ,p.getCategoria(),p.getCodigo(),p.getFechacreacion());
             listProducto.add(producto);
         }
         return  listProducto;

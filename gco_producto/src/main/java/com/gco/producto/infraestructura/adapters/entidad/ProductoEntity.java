@@ -37,8 +37,8 @@ public class ProductoEntity {
 	private  String codigo;
 
 	@Column(nullable = false)
-	private Date fechaCreacion;
-	public ProductoEntity(int id, String nombre, String descripcion, double precio, int stock, String categoria, String codigo, Date fechaCreacion) {
+	private Date fechacreacion;
+	public ProductoEntity(int id, String nombre, String descripcion, double precio, int stock, String categoria, String codigo, Date fechacreacion) {
 		this.setId(id);
 		this.setNombre(nombre);
 		this.setDescripcion(descripcion);
@@ -46,7 +46,7 @@ public class ProductoEntity {
 		this.setStock(stock);
 		this.setCategoria(categoria);
 		this.setCodigo(codigo);
-		this.setFechaCreacion(fechaCreacion);
+		this.setFechacreacion(fechacreacion);
 	}
 
 	public ProductoEntity(){}
@@ -108,11 +108,11 @@ public class ProductoEntity {
 		this.codigo = codigo;
 	}
 
-	public Date getFechaCreacion() {
-		return fechaCreacion;
+	public Date getFechacreacion() {
+		return fechacreacion;
 	}
 
-	public void setFechaCreacion(Date fechaCreacion) {
-		this.fechaCreacion = fechaCreacion;
+	public void setFechacreacion(Date fechacreacion) {
+		this.fechacreacion = fechacreacion;
 	}
 }

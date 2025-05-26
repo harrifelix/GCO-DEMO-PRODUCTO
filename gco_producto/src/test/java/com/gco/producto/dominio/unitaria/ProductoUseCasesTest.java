@@ -26,8 +26,7 @@ public class ProductoUseCasesTest {
     }
 
     @Test
-    public void EliminarProductoUseCase() {
-
+    public void ActualizarProductoUseCase() {
         Producto producto = new ProductoTestDataBuilder().build();
         RepositorioProductoGateway repositorioProductoGateway = mock(RepositorioProductoGateway.class);
         doNothing().when(repositorioProductoGateway).actualizar(producto);
@@ -35,6 +34,14 @@ public class ProductoUseCasesTest {
         Mockito.verify(repositorioProductoGateway).actualizar(producto);
     }
 
+    @Test
+    public void EliminarProductoUseCase() {
+        Producto producto = new ProductoTestDataBuilder().build();
+        RepositorioProductoGateway repositorioProductoGateway = mock(RepositorioProductoGateway.class);
+        doNothing().when(repositorioProductoGateway).actualizar(producto);
+        repositorioProductoGateway.eliminar("1");
+        Mockito.verify(repositorioProductoGateway).eliminar("1");
+    }
 
     @Test
     public void ObtenerProductosUseCase() {

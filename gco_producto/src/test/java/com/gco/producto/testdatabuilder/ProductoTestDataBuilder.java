@@ -14,7 +14,7 @@ public class ProductoTestDataBuilder {
     private static  int stock=2;
     private static  String categoria="GRANO";
     private static  String codigo="A01";
-    private static  Date fechaCreacion=new Date();
+    private static  Date fechacreacion =new Date();
 
     public ProductoTestDataBuilder conNombre(String nombre) {
         this.nombre = nombre;
@@ -47,17 +47,17 @@ public class ProductoTestDataBuilder {
     }
 
     public ProductoTestDataBuilder conFechaCreacion(Date fechaCreacion) {
-        this.fechaCreacion = fechaCreacion;
+        this.fechacreacion = fechaCreacion;
         return this;
     }
 
     public Producto build() {
         return new Producto(id, nombre, descripcion,precio,stock
-        ,categoria,codigo,fechaCreacion);
+        ,categoria,codigo, fechacreacion);
     }
 
     public ComandoProducto buildComando() {
         return new ComandoProducto(id, nombre, descripcion,precio,stock
-                ,categoria,codigo,fechaCreacion);
+                ,categoria,codigo, fechacreacion);
     }
 }
