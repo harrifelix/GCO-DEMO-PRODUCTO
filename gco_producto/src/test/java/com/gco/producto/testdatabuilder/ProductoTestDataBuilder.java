@@ -7,7 +7,7 @@ import java.util.Date;
 
 public class ProductoTestDataBuilder {
 
-    private static  int id=0;
+    private static  int id=1;
     private static  String nombre="ACEITE";
     private static  String descripcion="ACEITE 500 L ";
     private static  double precio=23.9;
