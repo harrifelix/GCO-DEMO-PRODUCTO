@@ -21,10 +21,10 @@ import com.gco.producto.testdatabuilder.*;
 @RunWith(SpringRunner.class)
 @AutoConfigureMockMvc
 @SpringBootTest
-public class ControladorLibroTest {
+public class ControladorProductoTest {
 
-    public static final String ISBN_LIBRO_PD1023 = "123";
-    public static final String ISBN_LIBRO_1234 = "1";
+    public static final String ISBN_PRODUCTO_PD1023 = "123";
+    public static final String ISBN_PRODUCTO_1234 = "1";
 
     @Autowired
     private MockMvc mvc;
@@ -33,30 +33,30 @@ public class ControladorLibroTest {
     private ObjectMapper objectMapper;
 
     @Test
-    public void getLibroPorIsbn() throws Exception {
+    public void getProductoPorIsbn() throws Exception {
         mvc.perform(MockMvcRequestBuilders
-                .get("/producto/{id}", ISBN_LIBRO_PD1023)
+                .get("/producto/{id}", ISBN_PRODUCTO_PD1023)
                 .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.id").value(ISBN_LIBRO_PD1023));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.id").value(ISBN_PRODUCTO_PD1023));
     }
 
     @Test
-    public void crearLibro() throws Exception {
-        ComandoProducto comandoLibro = new LibroTestDataBuilder().buildComando();
+    public void crearProducto() throws Exception {
+        ComandoProducto comandoProducto = new ProductoTestDataBuilder().buildComando();
         mvc.perform(MockMvcRequestBuilders
                 .post("/producto")
-                .content(objectMapper.writeValueAsString(comandoLibro))
+                .content(objectMapper.writeValueAsString(comandoProducto))
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
 
         mvc.perform(MockMvcRequestBuilders
-                .get("/producto/byId/{isbn}", ISBN_LIBRO_1234)
+                .get("/producto/byId/{isbn}", ISBN_PRODUCTO_1234)
                 .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.isbn").value(ISBN_LIBRO_1234));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.isbn").value(ISBN_PRODUCTO_1234));
     }
 }

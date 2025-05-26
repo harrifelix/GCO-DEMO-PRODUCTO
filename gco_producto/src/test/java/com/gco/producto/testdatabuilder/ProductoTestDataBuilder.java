@@ -5,48 +5,48 @@ import com.gco.producto.dominio.usecase.entities.*;
 
 import java.util.Date;
 
-public class LibroTestDataBuilder {
+public class ProductoTestDataBuilder {
 
-    private static  int id=1;
-    private static  String nombre="";
-    private static  String descripcion="";
+    private static  int id=0;
+    private static  String nombre="ACEITE";
+    private static  String descripcion="ACEITE 500 L ";
     private static  double precio=23.9;
     private static  int stock=2;
-    private static  String categoria="";
-    private static  String codigo="";
-    private static  Date fechaCreacion=null;
+    private static  String categoria="GRANO";
+    private static  String codigo="A01";
+    private static  Date fechaCreacion=new Date();
 
-    public LibroTestDataBuilder conNombre(String nombre) {
+    public ProductoTestDataBuilder conNombre(String nombre) {
         this.nombre = nombre;
         return this;
     }
 
-    public LibroTestDataBuilder conDescripcion(String descripcion) {
+    public ProductoTestDataBuilder conDescripcion(String descripcion) {
         this.descripcion = descripcion;
         return this;
     }
 
-    public LibroTestDataBuilder conPrecio(double precio) {
+    public ProductoTestDataBuilder conPrecio(double precio) {
         this.precio = precio;
         return this;
     }
 
-    public LibroTestDataBuilder conStock(int stock) {
+    public ProductoTestDataBuilder conStock(int stock) {
         this.stock = stock;
         return this;
     }
 
-    public LibroTestDataBuilder conCategoria(String categoria) {
+    public ProductoTestDataBuilder conCategoria(String categoria) {
         this.categoria = categoria;
         return this;
     }
 
-    public LibroTestDataBuilder conCodigo(String codigo) {
+    public ProductoTestDataBuilder conCodigo(String codigo) {
         this.codigo = codigo;
         return this;
     }
 
-    public LibroTestDataBuilder conFechaCreacion(Date fechaCreacion) {
+    public ProductoTestDataBuilder conFechaCreacion(Date fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
         return this;
     }

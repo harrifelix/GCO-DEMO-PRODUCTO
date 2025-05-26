@@ -8,13 +8,13 @@ import java.util.*;
 @Component
 public class ObtenerProductosUseCase {
 
-    private final RepositorioProductoPersistente repositorioLibro;
+    private final RepositorioProductoPersistente repositorioProductoPersistente;
 
-    public ObtenerProductosUseCase(RepositorioProductoPersistente repositorioLibro) {
-        this.repositorioLibro = repositorioLibro;
+    public ObtenerProductosUseCase(RepositorioProductoPersistente repositorioProductoPersistente) {
+        this.repositorioProductoPersistente = repositorioProductoPersistente;
     }
 
     public List<Producto> ejecutar() {
-        return this.repositorioLibro.getAll();
+        return this.repositorioProductoPersistente.getAll();
     }
 }

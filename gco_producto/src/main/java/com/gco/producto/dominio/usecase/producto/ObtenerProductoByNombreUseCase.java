@@ -7,13 +7,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class ObtenerProductoByNombreUseCase {
 
-    private final RepositorioProductoPersistente repositorioLibro;
+    private final RepositorioProductoPersistente repositorioProductoPersistente;
 
-    public ObtenerProductoByNombreUseCase(RepositorioProductoPersistente repositorioLibro) {
-        this.repositorioLibro = repositorioLibro;
+    public ObtenerProductoByNombreUseCase(RepositorioProductoPersistente repositorioProductoPersistente) {
+        this.repositorioProductoPersistente = repositorioProductoPersistente;
     }
 
     public Producto ejecutar(String isbn) {
-        return this.repositorioLibro.obtenerByNombre(isbn);
+        return this.repositorioProductoPersistente.obtenerByNombre(isbn);
     }
 }

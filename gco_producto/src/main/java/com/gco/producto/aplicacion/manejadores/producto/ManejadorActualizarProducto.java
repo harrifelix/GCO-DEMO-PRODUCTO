@@ -20,7 +20,7 @@ public class ManejadorActualizarProducto {
 
     @Transactional
     public void ejecutar(ComandoProducto comandoProducto) {
-        Producto producto = this.fabricaProducto.crearLibro(comandoProducto);
+        Producto producto = this.fabricaProducto.crearProducto(comandoProducto);
         this.crearProductoUseCase.ejecutar(producto);
     }
 }

@@ -90,7 +90,12 @@ public class ControladorProducto {
 
     @DeleteMapping("{id}")
     public void Eliminar(@PathVariable(name = "id") String id) {
+
+        Producto producto= this.manejadorObtenerProductoById.ejecutar(id);
         this.manejadorEliminarProducto.ejecutar(id);
+
+        agregarMovimiento(0,producto.getId(), TipoMovimientoEnum.SALIDA
+                ,producto.getDescripcion() , 1,producto.getFechaCreacion());
     }
 
     @PutMapping()
@@ -125,5 +130,6 @@ public class ControladorProducto {
   private void agregarMovimiento( int id,int idProducto, TipoMovimientoEnum tipo, String descripcion, int cantidad, Date fechaCreación) {
         ComandoMovimiento comandoMovimiento = new ComandoMovimiento(id,idProducto,tipo,cantidad,fechaCreación,descripcion);
         this.manejadorCrearMovimiento.ejecutar(comandoMovimiento);
+
     }
 }
