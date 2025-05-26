@@ -1,5 +1,6 @@
 package com.gco.producto.dominio.usecase.producto;
 
+import com.gco.producto.dominio.gateway.RepositorioProductoGateway;
 import com.gco.producto.dominio.usecase.entities.Producto;
 import com.gco.producto.infraestructura.adapters.repositorio.RepositorioProductoPersistente;
 import org.springframework.stereotype.Component;
@@ -7,13 +8,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class ObtenerProductoUseCase {
 
-    private final RepositorioProductoPersistente repositorioProductoPersistente;
+    private final RepositorioProductoGateway repositorioProductoGateway;
 
-    public ObtenerProductoUseCase(RepositorioProductoPersistente repositorioProductoPersistente) {
-        this.repositorioProductoPersistente = repositorioProductoPersistente;
+    public ObtenerProductoUseCase(RepositorioProductoGateway repositorioProductoGateway) {
+        this.repositorioProductoGateway = repositorioProductoGateway;
     }
 
     public Producto ejecutar(String id) {
-        return this.repositorioProductoPersistente.obtenerById(id);
+        return this.repositorioProductoGateway.obtenerById(id);
     }
 }

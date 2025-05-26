@@ -49,7 +49,8 @@ public class ProductoUseCasesTest {
         Producto producto = new ProductoTestDataBuilder().build();
         List<Producto> lista=new ArrayList<Producto>();
         lista.add(producto);
-        RepositorioProductoPersistente repositorioProductoGateway = mock(RepositorioProductoPersistente.class);
+        RepositorioProductoGateway repositorioProductoGateway = mock(RepositorioProductoGateway.class);
+
         ObtenerProductosUseCase obtenerProductosUseCase = new ObtenerProductosUseCase(repositorioProductoGateway);
         when(repositorioProductoGateway.getAll()).thenReturn(lista);
 
@@ -62,7 +63,8 @@ public class ProductoUseCasesTest {
     public void ObtenerProductoByCategoriaUseCase() {
 
         Producto producto = new ProductoTestDataBuilder().build();
-        RepositorioProductoPersistente repositorioProductoGateway = mock(RepositorioProductoPersistente.class);
+        RepositorioProductoGateway repositorioProductoGateway = mock(RepositorioProductoGateway.class);
+
         ObtenerProductoByCategoriaUseCase obtenerProductosUseCase = new ObtenerProductoByCategoriaUseCase(repositorioProductoGateway);
         when(repositorioProductoGateway.obtenerByCategoria(producto.getCategoria())).thenReturn(producto);
 
@@ -75,7 +77,8 @@ public class ProductoUseCasesTest {
     public void ObtenerProductoByCodigoUseCase() {
 
         Producto producto = new ProductoTestDataBuilder().build();
-        RepositorioProductoPersistente repositorioProductoGateway = mock(RepositorioProductoPersistente.class);
+        RepositorioProductoGateway repositorioProductoGateway = mock(RepositorioProductoGateway.class);
+
         ObtenerProductoByCodigoUseCase obtenerProductosUseCase = new ObtenerProductoByCodigoUseCase(repositorioProductoGateway);
         when(repositorioProductoGateway.obtenerByCodigo(producto.getCategoria())).thenReturn(producto);
 
@@ -88,7 +91,7 @@ public class ProductoUseCasesTest {
     public void ObtenerProductoByNombreUseCase() {
 
         Producto producto = new ProductoTestDataBuilder().build();
-        RepositorioProductoPersistente repositorioProductoGateway = mock(RepositorioProductoPersistente.class);
+        RepositorioProductoGateway repositorioProductoGateway = mock(RepositorioProductoGateway.class);
         ObtenerProductoByNombreUseCase obtenerProductosUseCase = new ObtenerProductoByNombreUseCase(repositorioProductoGateway);
         when(repositorioProductoGateway.obtenerByNombre(producto.getCategoria())).thenReturn(producto);
 
