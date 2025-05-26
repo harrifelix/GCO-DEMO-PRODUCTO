@@ -20,8 +20,8 @@ public class ManejadorCrearMovimiento {
     }
 
     @Transactional
-    public void ejecutar(ComandoMovimiento comandoMovimiento,Producto productos) {
+    public void ejecutar(ComandoMovimiento comandoMovimiento) {
         Movimiento producto = this.fabricaMovimiento.crearPrestamo(comandoMovimiento);
-        this.crearMovimientoUseCase.ejecutar(producto,productos);
+        this.crearMovimientoUseCase.ejecutar(producto);
     }
 }

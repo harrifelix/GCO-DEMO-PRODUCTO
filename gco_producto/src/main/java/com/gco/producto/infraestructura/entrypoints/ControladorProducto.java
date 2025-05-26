@@ -116,16 +116,14 @@ public class ControladorProducto {
     private void agregarProducto(int id, String nombre, String descripcion, double precio, int stock, String categoría, String codigo, Date fechaCreacion) {
         ComandoProducto comandoProducto = new ComandoProducto(id
                 , nombre, descripcion, precio, stock, categoría, codigo, fechaCreacion);
-        this.manejadorCrearProducto.ejecutar(comandoProducto);
+        int idProducto=this.manejadorCrearProducto.ejecutar(comandoProducto);
 
-       Producto producto=new Producto(id ,nombre,descripcion,precio,stock,categoría,codigo,fechaCreacion);
-
-        agregarMovimiento(producto,0, TipoMovimientoEnum.ENTRADA
+        agregarMovimiento(0,idProducto, TipoMovimientoEnum.ENTRADA
         ,descripcion , 1, fechaCreacion);
     }
 
-  private void agregarMovimiento(Producto producto, int id, TipoMovimientoEnum tipo, String descripcion, int cantidad, Date fechaCreación) {
-        ComandoMovimiento comandoMovimiento = new ComandoMovimiento(id,producto,tipo,cantidad,fechaCreación,descripcion);
-        this.manejadorCrearMovimiento.ejecutar(comandoMovimiento,producto);
+  private void agregarMovimiento( int id,int idProducto, TipoMovimientoEnum tipo, String descripcion, int cantidad, Date fechaCreación) {
+        ComandoMovimiento comandoMovimiento = new ComandoMovimiento(id,idProducto,tipo,cantidad,fechaCreación,descripcion);
+        this.manejadorCrearMovimiento.ejecutar(comandoMovimiento);
     }
 }

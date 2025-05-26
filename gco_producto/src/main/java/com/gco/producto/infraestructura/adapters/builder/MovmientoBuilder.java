@@ -16,17 +16,17 @@ public final class MovmientoBuilder {
 
 
             movimiento = new Movimiento(id,
-                   null,movimientoEntity.getTipo()
+                    movimiento.getIdProducto(), movimientoEntity.getTipo()
             ,movimientoEntity.getCantidad(),movimientoEntity.getFecha(),movimientoEntity.getDescripcion());
         }
         return movimiento;
     }
 
 
-    public static MovimientoEntity convertirToEntity(Movimiento movimiento,Producto producto) {
+    public static MovimientoEntity convertirToEntity(Movimiento movimiento) {
         MovimientoEntity movimientoEntity = new MovimientoEntity();
         movimientoEntity.setCantidad(movimiento.getId());
-        movimientoEntity.setProducto(ProductoBuilder.convertirToEntity(producto));
+        movimientoEntity.setIdProducto(movimientoEntity.getIdProducto());
         movimientoEntity.setTipo(movimiento.getTipo());
         movimientoEntity.setCantidad(movimiento.getCantidad());
         movimientoEntity.setFecha(movimiento.getFecha());

@@ -10,7 +10,7 @@ import com.gco.producto.aplicacion.comando.*;
 @Component
 public class FabricaMovimiento {
     public Movimiento crearPrestamo(ComandoMovimiento comandoMovimiento) {
-        return new Movimiento(comandoMovimiento.getId(),comandoMovimiento.getProducto()
+        return new Movimiento(comandoMovimiento.getId(),comandoMovimiento.getIdProducto()
                 ,comandoMovimiento.getTipo(),comandoMovimiento.getCantidad()
                 ,comandoMovimiento.getFecha(),comandoMovimiento.getDescripción());
     }

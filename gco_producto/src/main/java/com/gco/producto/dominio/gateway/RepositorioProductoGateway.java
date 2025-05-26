@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface RepositorioProductoGateway {
 
-    void agregar(Producto producto);
+    int agregar(Producto producto);
 
     void actualizar(Producto producto);
 

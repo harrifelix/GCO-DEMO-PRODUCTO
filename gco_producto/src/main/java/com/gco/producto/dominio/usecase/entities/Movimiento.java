@@ -8,15 +8,15 @@ import  com.gco.producto.infraestructura.entrypoints.enums.*;
 public class Movimiento {
 
     private final int  id;
-    private final Producto producto;
+    private final int idProducto;
     private final TipoMovimientoEnum tipo ;
     private final int cantidad;
     private final Date fecha;
     private final String descripcion;
 
-    public Movimiento(int id,Producto producto,TipoMovimientoEnum tipo ,int cantidad,Date fecha,String descripcion) {
+    public Movimiento(int id,int idProducto,TipoMovimientoEnum tipo ,int cantidad,Date fecha,String descripcion) {
         this.id=id;
-        this.producto=producto;
+        this.idProducto=idProducto;
         this.tipo=tipo;
         this.cantidad=cantidad;
         this.fecha=fecha;
@@ -26,10 +26,6 @@ public class Movimiento {
 
     public int getId() {
         return id;
-    }
-
-    public Producto getProducto() {
-        return producto;
     }
 
     public TipoMovimientoEnum getTipo() {
@@ -46,5 +42,9 @@ public class Movimiento {
 
     public String getDescripcion() {
         return descripcion;
+    }
+
+    public int getIdProducto() {
+        return idProducto;
     }
 }

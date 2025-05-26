@@ -14,7 +14,8 @@ public class CrearProductoUseCase {
         this.repositorioProductoGateway = repositorioProductoGateway;
     }
 
-    public void ejecutar(Producto producto) {
-        this.repositorioProductoGateway.agregar(producto);
+    public int ejecutar(Producto producto) {
+       return this.repositorioProductoGateway.agregar(producto);
     }
+
 }

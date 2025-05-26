@@ -7,15 +7,15 @@ import java.util.Date;
 public class ComandoMovimiento {
 
     private final int  id;
-    private final Producto producto;
+    private final int idProducto;
     private final TipoMovimientoEnum tipo ;
     private final int cantidad;
     private final Date fecha;
     private final String descripción;
 
-    public ComandoMovimiento(int id,Producto producto,TipoMovimientoEnum tipo ,int cantidad,Date fecha,String descripción) {
+    public ComandoMovimiento(int id,int idProducto,TipoMovimientoEnum tipo ,int cantidad,Date fecha,String descripción) {
         this.id=id;
-        this.producto=producto;
+        this.idProducto=idProducto;
         this.tipo=tipo;
         this.cantidad=cantidad;
         this.fecha=fecha;
@@ -25,10 +25,6 @@ public class ComandoMovimiento {
 
     public int getId() {
         return id;
-    }
-
-    public Producto getProducto() {
-        return producto;
     }
 
     public TipoMovimientoEnum getTipo() {
@@ -47,5 +43,8 @@ public class ComandoMovimiento {
         return descripción;
     }
 
+    public int getIdProducto() {
+        return idProducto;
+    }
 }
 

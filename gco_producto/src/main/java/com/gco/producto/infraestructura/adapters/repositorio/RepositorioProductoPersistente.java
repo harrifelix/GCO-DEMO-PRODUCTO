@@ -38,12 +38,13 @@ public class RepositorioProductoPersistente implements RepositorioProductoGatewa
 
 
     @Override
-    public void agregar(Producto producto) {
+    public int agregar(Producto producto) {
         ProductoEntity movimientoEntity = ProductoBuilder.convertirToEntity(producto);
 
         entityManager.persist(movimientoEntity);
         entityManager.flush();
-        //movimientoEntity.setId(movimientoEntity.getId());
+        movimientoEntity.setId(movimientoEntity.getId());
+        return movimientoEntity.getId();
     }
 
     @Override

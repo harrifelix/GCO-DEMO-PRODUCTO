@@ -16,10 +16,8 @@ public class MovimientoEntity {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "ID_PRODUCTO", referencedColumnName = "id")
-	private ProductoEntity producto;
+	@Column(nullable = false)
+	private int idProducto;
 	@Column(nullable = false)
 	private TipoMovimientoEnum tipo ;
 	@Column(nullable = false)
@@ -39,14 +37,6 @@ public class MovimientoEntity {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public ProductoEntity getProducto() {
-		return producto;
-	}
-
-	public void setProducto(ProductoEntity producto) {
-		this.producto = producto;
 	}
 
 	public TipoMovimientoEnum getTipo() {
@@ -79,5 +69,13 @@ public class MovimientoEntity {
 
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+	}
+
+	public int getIdProducto() {
+		return idProducto;
+	}
+
+	public void setIdProducto(int idProducto) {
+		this.idProducto = idProducto;
 	}
 }

@@ -35,8 +35,8 @@ public class RepositorioMovimientoPersistente implements RepositorioMovimientoGa
 
 
     @Override
-    public void agregar(Movimiento movimiento,Producto productos) {
-        MovimientoEntity movimientoEntity = MovmientoBuilder.convertirToEntity(movimiento,productos);
+    public void agregar(Movimiento movimiento) {
+        MovimientoEntity movimientoEntity = MovmientoBuilder.convertirToEntity(movimiento);
        try {
            entityManager.persist(movimientoEntity);
            entityManager.flush();
@@ -60,7 +60,7 @@ public class RepositorioMovimientoPersistente implements RepositorioMovimientoGa
             int id = Math.toIntExact(p.getId());
 
             Movimiento   movimiento = new Movimiento(id,
-                    null,p.getTipo()
+                    p.getIdProducto(),p.getTipo()
                     ,p.getCantidad(),p.getFecha(),p.getDescripcion());
 
             listProducto.add(movimiento);

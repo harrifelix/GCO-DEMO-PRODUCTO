@@ -19,8 +19,8 @@ public class ManejadorCrearProducto {
     }
 
     @Transactional
-    public void ejecutar(ComandoProducto comandoProducto) {
+    public int ejecutar(ComandoProducto comandoProducto) {
         Producto producto = this.fabricaProducto.crearLibro(comandoProducto);
-        this.crearProductoUseCase.ejecutar(producto);
+       return this.crearProductoUseCase.ejecutar(producto);
     }
 }
