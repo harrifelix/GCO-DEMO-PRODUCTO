@@ -1,4 +1,4 @@
-package com.gco.producto.dominio.unitaria;
+package com.gco.producto.dominio;
 
 import org.junit.Test;
 import com.gco.producto.testdatabuilder.*;

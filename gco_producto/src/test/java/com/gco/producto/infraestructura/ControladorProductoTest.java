@@ -27,8 +27,8 @@ import com.gco.producto.testdatabuilder.*;
 @SpringBootTest
 public class ControladorProductoTest {
 
-    public static final String ISBN_PRODUCTO_PD1023 = "MI PRIMER AMOR";
-    public static final String ISBN_PRODUCTO_1234 = "1";
+    public static final String NOMBRE_PRODUCTO = "ARROZ";
+
 
     @Autowired
     private MockMvc mvc;
@@ -48,11 +48,11 @@ public class ControladorProductoTest {
     @Test
     public void getByNombre() throws Exception {
         mvc.perform(MockMvcRequestBuilders
-                        .get("/producto/byNombre/{nombre}","MI PRIMER AMOR")
+                        .get("/producto/byNombre/{nombre}","ARROZ")
                         .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isOk())
-         .andExpect(MockMvcResultMatchers.jsonPath("$.nombre").value(ISBN_PRODUCTO_PD1023));
+         .andExpect(MockMvcResultMatchers.jsonPath("$.nombre").value(NOMBRE_PRODUCTO));
     }
 
     @Test
@@ -62,7 +62,7 @@ public class ControladorProductoTest {
                         .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.nombre").value(ISBN_PRODUCTO_PD1023));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.nombre").value(NOMBRE_PRODUCTO));
     }
 
     @Test
@@ -72,7 +72,7 @@ public class ControladorProductoTest {
                         .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.nombre").value(ISBN_PRODUCTO_PD1023));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.nombre").value(NOMBRE_PRODUCTO));
     }
 
     @Test
@@ -82,7 +82,7 @@ public class ControladorProductoTest {
                         .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.nombre").value(ISBN_PRODUCTO_PD1023));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.nombre").value(NOMBRE_PRODUCTO));
     }
 
     @Test
@@ -94,12 +94,5 @@ public class ControladorProductoTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
-
-      /*  mvc.perform(MockMvcRequestBuilders
-                .get("/producto/byId/{isbn}", ISBN_PRODUCTO_1234)
-                .accept(MediaType.APPLICATION_JSON))
-                .andDo(print())
-                .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.isbn").value(ISBN_PRODUCTO_1234));*/
     }
 }
