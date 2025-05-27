@@ -21,7 +21,7 @@ Yo como analista desarrollador deseo implementar un sistema para llevar control 
 
 En el siguiente diagrama se muestra el diseño de los componentes de la arquitectura:
 
-![Diseño de Arquitectura]()
+![Diseño de Arquitectura](diagrama%20componentes.png)
 
 | **Nombre Componente** | **Descripción del componente**                                                                                   | **Responsabilidad** | **Tipo**      | **Herramienta**     |
 |-----------------------|------------------------------------------------------------------------------------------------------------------|---------------------|---------------|---------------------|

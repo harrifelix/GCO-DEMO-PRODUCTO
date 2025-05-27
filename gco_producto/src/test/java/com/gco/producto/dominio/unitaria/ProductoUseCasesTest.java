@@ -12,6 +12,10 @@ import java.util.*;
 import  com.gco.producto.infraestructura.adapters.repositorio.*;
 import org.mockito.Mockito;
 import static org.mockito.Mockito.doNothing;
+
+/**
+ * PRUEBAS UNITARIAS
+ */
 public class ProductoUseCasesTest {
 
     @Test

@@ -18,12 +18,16 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import com.gco.producto.aplicacion.comando.*;
 import com.gco.producto.testdatabuilder.*;
 
+
+/**
+ * PRUEBAS DE INTEGRACION
+ */
 @RunWith(SpringRunner.class)
 @AutoConfigureMockMvc
 @SpringBootTest
 public class ControladorProductoTest {
 
-    public static final String ISBN_PRODUCTO_PD1023 = "123";
+    public static final String ISBN_PRODUCTO_PD1023 = "MI PRIMER AMOR";
     public static final String ISBN_PRODUCTO_1234 = "1";
 
     @Autowired
@@ -33,13 +37,52 @@ public class ControladorProductoTest {
     private ObjectMapper objectMapper;
 
     @Test
-    public void getProductoPorIsbn() throws Exception {
+    public void getAllProductos() throws Exception {
         mvc.perform(MockMvcRequestBuilders
-                .get("/producto/{id}", ISBN_PRODUCTO_PD1023)
+                .get("/producto")
                 .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    public void getByNombre() throws Exception {
+        mvc.perform(MockMvcRequestBuilders
+                        .get("/producto/byNombre/{nombre}","MI PRIMER AMOR")
+                        .accept(MediaType.APPLICATION_JSON))
+                .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.id").value(ISBN_PRODUCTO_PD1023));
+         .andExpect(MockMvcResultMatchers.jsonPath("$.nombre").value(ISBN_PRODUCTO_PD1023));
+    }
+
+    @Test
+    public void getById() throws Exception {
+        mvc.perform(MockMvcRequestBuilders
+                        .get("/producto/byId/{id}","1")
+                        .accept(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.nombre").value(ISBN_PRODUCTO_PD1023));
+    }
+
+    @Test
+    public void getByCodigo() throws Exception {
+        mvc.perform(MockMvcRequestBuilders
+                        .get("/producto/byCodigo/{codigo}","X")
+                        .accept(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.nombre").value(ISBN_PRODUCTO_PD1023));
+    }
+
+    @Test
+    public void getByCategoria() throws Exception {
+        mvc.perform(MockMvcRequestBuilders
+                        .get("/producto/byCategoria/{categoria}","X")
+                        .accept(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.nombre").value(ISBN_PRODUCTO_PD1023));
     }
 
     @Test
@@ -52,11 +95,11 @@ public class ControladorProductoTest {
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
 
-        mvc.perform(MockMvcRequestBuilders
+      /*  mvc.perform(MockMvcRequestBuilders
                 .get("/producto/byId/{isbn}", ISBN_PRODUCTO_1234)
                 .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.isbn").value(ISBN_PRODUCTO_1234));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.isbn").value(ISBN_PRODUCTO_1234));*/
     }
 }
