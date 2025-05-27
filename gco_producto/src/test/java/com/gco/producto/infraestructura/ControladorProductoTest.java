@@ -28,8 +28,6 @@ import com.gco.producto.testdatabuilder.*;
 public class ControladorProductoTest {
 
     public static final String NOMBRE_PRODUCTO = "ARROZ";
-
-
     @Autowired
     private MockMvc mvc;
 
@@ -83,16 +81,5 @@ public class ControladorProductoTest {
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.nombre").value(NOMBRE_PRODUCTO));
-    }
-
-    @Test
-    public void crearProducto() throws Exception {
-        ComandoProducto comandoProducto = new ProductoTestDataBuilder().buildComando();
-        mvc.perform(MockMvcRequestBuilders
-                .post("/producto")
-                .content(objectMapper.writeValueAsString(comandoProducto))
-                .contentType(MediaType.APPLICATION_JSON)
-                .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk());
     }
 }

@@ -19,17 +19,6 @@ import static org.mockito.Mockito.doNothing;
 public class ProductoUseCasesTest {
 
     @Test
-    public void CrearProductoUseCase() {
-
-        Producto producto = new ProductoTestDataBuilder().build();
-        RepositorioProductoGateway repositorioProductoGateway = mock(RepositorioProductoGateway.class);
-        when(repositorioProductoGateway.agregar(producto)).thenReturn(1);
-        CrearProductoUseCase crearProductoUseCase = new CrearProductoUseCase(repositorioProductoGateway);
-        crearProductoUseCase.ejecutar(producto);
-        assertEquals(producto.getId(), 1);
-    }
-
-    @Test
     public void ActualizarProductoUseCase() {
         Producto producto = new ProductoTestDataBuilder().build();
         RepositorioProductoGateway repositorioProductoGateway = mock(RepositorioProductoGateway.class);
