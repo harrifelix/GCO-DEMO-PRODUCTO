@@ -3,8 +3,6 @@ package com.gco.producto.dominio.usecase.entities;
 import java.util.Date;
 import  com.gco.producto.infraestructura.entrypoints.enums.*;
 
-
-
 public class Movimiento {
 
     private final int  id;

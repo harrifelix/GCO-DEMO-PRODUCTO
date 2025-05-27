@@ -7,4 +7,8 @@ public interface ISujeto {
      void Detach(IObservador observador);
 
      void Notify();
+
+      int getStock();
+
+      int getIdProducto();
 }

@@ -7,7 +7,6 @@ import org.springframework.transaction.annotation.Transactional;
 import  com.gco.producto.dominio.usecase.movimiento.*;
 import  com.gco.producto.aplicacion.fabrica.*;
 
-
 @Component
 public class ManejadorCrearMovimiento {
 

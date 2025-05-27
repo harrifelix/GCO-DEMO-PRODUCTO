@@ -1,8 +1,6 @@
 package com.gco.producto.aplicacion.comando;
 
-
 import java.util.Date;
-
 public class ComandoProducto {
 
     private final int id;

@@ -1,7 +1,6 @@
 package com.gco.producto.dominio.usecase.entities;
 
 import java.util.Date;
-
 public class Producto {
 
     private final int id;

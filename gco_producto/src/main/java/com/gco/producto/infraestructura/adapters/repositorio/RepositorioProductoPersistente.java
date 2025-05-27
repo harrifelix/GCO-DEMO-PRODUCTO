@@ -15,27 +15,19 @@ import java.util.List;
 public class RepositorioProductoPersistente implements RepositorioProductoGateway {
 
     private static final String ID = "id";
-
     private static final String CODIGO = "codigo";
     private static final String NOMBRE = "nombre";
     private static final String CATEGORIA = "categoria";
-
     private static final String PRODUCTO_FIND_BY_ALL = "Producto.findAll";
     private static final String PRODUCTO_FIND_BY_NOMBRE = "Producto.findByNombre";
     private static final String PRODUCTO_FIND_BY_CATEGORIA = "Producto.findByCategoria";
     private static final String PRODUCTO_FIND_BY_CODIGO = "Producto.findByCodigo";
-
     private static final String PRODUCTO_FIND_BY_ID = "Producto.findById";
-
     private final EntityManager entityManager;
 
-
     public RepositorioProductoPersistente(EntityManager entityManager) {
-
         this.entityManager = entityManager;
-
     }
-
 
     @Override
     public int agregar(Producto producto) {
@@ -50,20 +42,16 @@ public class RepositorioProductoPersistente implements RepositorioProductoGatewa
     @Override
     public void actualizar(Producto producto) {
         ProductoEntity movimientoEntity = ProductoBuilder.convertirToEntity(producto);
-
         entityManager.merge(movimientoEntity);
         entityManager.flush();
-        //movimientoEntity.setId(movimientoEntity.getId());
     }
 
     @Override
     public void eliminar(String id) {
 
         ProductoEntity movimientoEntity =  obtenerPrestamoEntityById(id);
-
         entityManager.remove(movimientoEntity);
         entityManager.flush();
-        //movimientoEntity.setId(movimientoEntity.getId());
     }
 
     @Override
@@ -78,7 +66,6 @@ public class RepositorioProductoPersistente implements RepositorioProductoGatewa
                 movimientoEntity.getId(), movimientoEntity.getNombre()
                 , movimientoEntity.getDescripcion(), movimientoEntity.getPrecio(),movimientoEntity.getStock()
                 ,movimientoEntity.getCategoria(),movimientoEntity.getCodigo(),movimientoEntity.getFechacreacion());
-
     }
 
     @Override
@@ -93,7 +80,6 @@ public class RepositorioProductoPersistente implements RepositorioProductoGatewa
                 movimientoEntity.getId(), movimientoEntity.getNombre()
                 , movimientoEntity.getDescripcion(), movimientoEntity.getPrecio(),movimientoEntity.getStock()
                 ,movimientoEntity.getCategoria(),movimientoEntity.getCodigo(),movimientoEntity.getFechacreacion());
-
     }
 
     @Override
@@ -108,7 +94,6 @@ public class RepositorioProductoPersistente implements RepositorioProductoGatewa
                 movimientoEntity.getId(), movimientoEntity.getNombre()
                 , movimientoEntity.getDescripcion(), movimientoEntity.getPrecio(),movimientoEntity.getStock()
                 ,movimientoEntity.getCategoria(),movimientoEntity.getCodigo(),movimientoEntity.getFechacreacion());
-
     }
 
     @Override
@@ -123,7 +108,6 @@ public class RepositorioProductoPersistente implements RepositorioProductoGatewa
                 movimientoEntity.getId(), movimientoEntity.getNombre()
                 , movimientoEntity.getDescripcion(), movimientoEntity.getPrecio(),movimientoEntity.getStock()
                 ,movimientoEntity.getCategoria(),movimientoEntity.getCodigo(),movimientoEntity.getFechacreacion());
-
     }
 
     @Override
@@ -143,6 +127,10 @@ public class RepositorioProductoPersistente implements RepositorioProductoGatewa
         }
         return  listProducto;
     }
+
+    /**
+     * METODOS PRIVADOS
+     */
 
     private ProductoEntity obtenerPrestamoEntityById(String id) {
 

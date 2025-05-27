@@ -2,7 +2,6 @@ package com.gco.producto.dominio.usecase.movimiento;
 
 
 import com.gco.producto.dominio.gateway.*;
-import com.gco.producto.dominio.usecase.entities.Producto;
 import org.springframework.stereotype.Component;
 import  com.gco.producto.dominio.usecase.entities.*;
 @Component

@@ -5,7 +5,6 @@ import com.gco.producto.dominio.usecase.entities.*;
 import com.gco.producto.dominio.usecase.movimiento.*;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
-import com.gco.producto.aplicacion.comando.ComandoMovimiento;
 import com.gco.producto.aplicacion.fabrica.*;
 
 @Component

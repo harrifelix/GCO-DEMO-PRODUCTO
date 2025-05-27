@@ -1,6 +1,5 @@
 package com.gco.producto.dominio.gateway;
 
-
 import com.gco.producto.dominio.usecase.entities.Producto;
 
 import java.util.List;
