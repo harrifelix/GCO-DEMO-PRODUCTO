@@ -1,4 +1,4 @@
-package com.gco.producto.infraestructura.entrypoints;
+package com.gco.producto.infraestructura.entrypoints.job;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import  com.gco.producto.infraestructura.entrypoints.observador.*;
@@ -14,7 +14,7 @@ public class NotificacionesBajoStockJob {
      * este metodo ejecuta un observador para notificar bajo stock a sus observadores puede tener
      * los observadores que desee en este caso solo hay un observador
      */
-    @Scheduled(cron = "0 * * * * *")
+    @Scheduled(cron = "0/30 * * * * ?")
     public void verificarBajoStock(){
 
         SujetoImp sujetoImp =new   SujetoImp();
